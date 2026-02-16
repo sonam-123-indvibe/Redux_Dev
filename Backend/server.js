@@ -1,8 +1,11 @@
 const express = require('express')
 const db = require('./db/connection')
 const defaultfun = require('./default.js')
+const cors = require('cors')
 
 const app = express()
+app.use(cors()) 
+
 db()
 defaultfun()
 app.use('/api',require('./Routes/ProductRoutes.js'))
